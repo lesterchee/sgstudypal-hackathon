@@ -186,27 +186,32 @@ export async function POST(req: Request) {
         const coreMessages = await convertToModelMessages(messages);
 
         // Purpose: Sprint 232 — Inject side-channeled image directly into the
-        // last coreMessage's content array using the AI SDK's native URL object
-        // format for data URIs.
+        // last coreMessage's content array. Combines array normalization with
+        // native Buffer payload for bulletproof Gemini multimodal routing.
         if (imageData) {
             const lastCoreMessage = coreMessages[coreMessages.length - 1];
             if (lastCoreMessage && lastCoreMessage.role === "user") {
 
-                // 1. Ensure content is an array
+                // 1. Normalize string content to an array
                 if (typeof lastCoreMessage.content === 'string') {
                     (lastCoreMessage as any).content = [
                         { type: 'text', text: lastCoreMessage.content }
                     ];
                 }
 
-                // 2. Append the image using the native URL object approach
-                // (imageData is the full "data:image/png;base64,..." string from the frontend)
+                // 2. Safely extract raw base64 and mimeType from the frontend Data URI
+                const base64Data = imageData.includes(',') ? imageData.split(',')[1] : imageData;
+                const mimeTypeMatch = imageData.match(/data:(.*?);/);
+                const mimeType = mimeTypeMatch ? mimeTypeMatch[1] : 'image/jpeg';
+
+                // 3. Inject as a native Buffer alongside the explicit mimeType
                 (lastCoreMessage.content as any[]).push({
                     type: "image",
-                    image: new URL(imageData),
+                    image: Buffer.from(base64Data, 'base64'),
+                    mimeType: mimeType,
                 });
 
-                console.log("[IMAGE INJECT] Successfully injected image via URL object (length:", imageData.length, ")");
+                console.log("[IMAGE INJECT] Buffer injected (mimeType:", mimeType, ", bytes:", Buffer.from(base64Data, 'base64').length, ")");
             }
         }
 
