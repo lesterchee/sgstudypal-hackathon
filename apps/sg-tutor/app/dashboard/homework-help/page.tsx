@@ -246,14 +246,14 @@ export default function HomeworkHelpPage() {
         <div className="flex-1 flex h-full bg-gray-50 dark:bg-slate-950 relative">
             {/* Purpose: Sprint 96 — LEFT SIDEBAR (collapsible w-72). */}
             <aside className={`${isSidebarOpen ? "w-72 flex" : "hidden"} flex-col shrink-0 border-r border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 md:flex transition-all`}>
-                {/* Purpose: Sprint 96 — Upload button moved to very top. */}
+                {/* Purpose: Sprint 96 — Upload button (disabled for hackathon demo). */}
                 <div className="shrink-0 p-3 border-b border-gray-200 dark:border-slate-800">
                     <button
-                        onClick={() => setShowUploadModal(true)}
-                        className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-violet-600 text-white text-xs font-semibold hover:bg-violet-500 transition-colors cursor-pointer"
+                        disabled={true}
+                        className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-violet-600 text-white text-xs font-semibold opacity-50 cursor-not-allowed"
                     >
                         <UploadIcon size={14} />
-                        Upload More Questions
+                        Upload (Still WIP)
                     </button>
                 </div>
 
@@ -474,9 +474,9 @@ export default function HomeworkHelpPage() {
                     <form onSubmit={handleFormSubmit} className="flex items-end gap-2">
                         <button
                             type="button"
-                            onClick={() => fileInputRef.current?.click()}
-                            className="shrink-0 w-9 h-9 rounded-lg border border-gray-200 dark:border-slate-700 flex items-center justify-center text-gray-400 dark:text-slate-400 hover:text-violet-600 hover:border-violet-300 transition-all cursor-pointer"
-                            title="Upload image"
+                            disabled={true}
+                            className="shrink-0 w-9 h-9 rounded-lg border border-gray-200 dark:border-slate-700 flex items-center justify-center text-gray-400 dark:text-slate-400 opacity-50 cursor-not-allowed"
+                            title="Upload image (Still WIP)"
                         >
                             <ImagePlusIcon size={16} />
                         </button>

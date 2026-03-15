@@ -185,35 +185,28 @@ export async function POST(req: Request) {
         // that Gemini expects, preventing Zod invalid_union validation crashes.
         const coreMessages = await convertToModelMessages(messages);
 
-        // Purpose: Sprint 232 — Inject side-channeled image directly into the
-        // last coreMessage's content array. Combines array normalization with
-        // native Buffer payload for bulletproof Gemini multimodal routing.
-        if (imageData) {
-            const lastCoreMessage = coreMessages[coreMessages.length - 1];
-            if (lastCoreMessage && lastCoreMessage.role === "user") {
-
-                // 1. Normalize string content to an array
-                if (typeof lastCoreMessage.content === 'string') {
-                    (lastCoreMessage as any).content = [
-                        { type: 'text', text: lastCoreMessage.content }
-                    ];
-                }
-
-                // 2. Safely extract raw base64 and mimeType from the frontend Data URI
-                const base64Data = imageData.includes(',') ? imageData.split(',')[1] : imageData;
-                const mimeTypeMatch = imageData.match(/data:(.*?);/);
-                const mimeType = mimeTypeMatch ? mimeTypeMatch[1] : 'image/jpeg';
-
-                // 3. Inject as a native Buffer alongside the explicit mimeType
-                (lastCoreMessage.content as any[]).push({
-                    type: "image",
-                    image: Buffer.from(base64Data, 'base64'),
-                    mimeType: mimeType,
-                });
-
-                console.log("[IMAGE INJECT] Buffer injected (mimeType:", mimeType, ", bytes:", Buffer.from(base64Data, 'base64').length, ")");
-            }
-        }
+        // Purpose: [DISABLED Phase 180] Multimodal image injection reverted to
+        // stabilize demo. Re-enable once Buffer/mimeType serialization is validated
+        // against the @ai-sdk/google provider's internal schema.
+        // if (imageData) {
+        //     const lastCoreMessage = coreMessages[coreMessages.length - 1];
+        //     if (lastCoreMessage && lastCoreMessage.role === "user") {
+        //         if (typeof lastCoreMessage.content === 'string') {
+        //             (lastCoreMessage as any).content = [
+        //                 { type: 'text', text: lastCoreMessage.content }
+        //             ];
+        //         }
+        //         const base64Data = imageData.includes(',') ? imageData.split(',')[1] : imageData;
+        //         const mimeTypeMatch = imageData.match(/data:(.*?);/);
+        //         const mimeType = mimeTypeMatch ? mimeTypeMatch[1] : 'image/jpeg';
+        //         (lastCoreMessage.content as any[]).push({
+        //             type: "image",
+        //             image: Buffer.from(base64Data, 'base64'),
+        //             mimeType: mimeType,
+        //         });
+        //         console.log("[IMAGE INJECT] Buffer injected");
+        //     }
+        // }
 
         // Purpose: Sprint 115 — Intercept hidden UI directives from the side-channel.
         // The frontend passes natural user text for the chat bubble, while strict
