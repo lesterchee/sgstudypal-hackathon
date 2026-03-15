@@ -22,8 +22,7 @@ gcloud run deploy sg-tutor-live \
     --source "$MONO_ROOT" \
     --region asia-southeast1 \
     --allow-unauthenticated \
-    --port 8080 \
-    --set-env-vars "GEMINI_API_KEY=YOUR_API_KEY_HERE,GOOGLE_GENERATIVE_AI_API_KEY=YOUR_API_KEY_HERE"
+    --port 8080
 
 # Purpose: Clean up temporary root-level build files.
 echo "Cleaning up temporary build files..."
