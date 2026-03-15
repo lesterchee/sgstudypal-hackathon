@@ -30,11 +30,14 @@ const PanelLeftIcon = PanelLeft as any;
 // Purpose: Triage tab type.
 type TriageTab = "recent" | "solved" | "rejected";
 
-// Purpose: Production demo data — 2 real P6 Math problems from the
+// Purpose: Production demo data — 5 real P6 Math problems from the
 // public/homework-help directory. Thumbnails point to actual image assets.
 const PENDING_QUESTIONS = [
     { id: "sample-math", subject: "Math P6", topic: "Fractions", timestamp: "Just now", thumbnail: "/homework-help/math-problem-1.png" },
     { id: "q1", subject: "Math P6", topic: "Speed", timestamp: "2 min ago", thumbnail: "/homework-help/math-problem-2.png" },
+    { id: "q2", subject: "Math P6", topic: "Ratios", timestamp: "5 min ago", thumbnail: "/homework-help/math-problem-3.png" },
+    { id: "q3", subject: "Math P6", topic: "Area & Perimeter", timestamp: "8 min ago", thumbnail: "/homework-help/math-problem-4.png" },
+    { id: "q4", subject: "Math P6", topic: "Percentages", timestamp: "12 min ago", thumbnail: "/homework-help/math-problem-5.png" },
 ];
 
 // Purpose: Mock data — recently solved papers.
