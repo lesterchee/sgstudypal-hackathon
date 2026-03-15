@@ -1,0 +1,35 @@
+{
+    "$schema": "https://turbo.build/schema.json",
+    "globalEnv": [
+        "DASHSCOPE_API_KEY"
+    ],
+    "tasks": {
+        "build": {
+            "dependsOn": [
+                "^build"
+            ],
+            "outputs": [
+                ".next/**",
+                "!.next/cache/**",
+                "dist/**"
+            ]
+        },
+        "lint": {
+            "dependsOn": [
+                "^lint"
+            ]
+        },
+        "lint:contracts": {},
+        "master-lock-check": {},
+        "test:benchmarks": {
+            "dependsOn": [
+                "^build"
+            ],
+            "outputs": []
+        },
+        "dev": {
+            "cache": false,
+            "persistent": true
+        }
+    }
+}

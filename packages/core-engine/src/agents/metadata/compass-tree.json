@@ -1,0 +1,50 @@
+{
+  "agentId": "compass-001",
+  "version": "2026.1",
+  "root": "START_TRIAGE",
+  "nodes": {
+    "START_TRIAGE": {
+      "question": "Are you currently in immediate physical danger or being locked out of your home?",
+      "options": [
+        { "label": "Yes", "next": "EMERGENCY_PPO" },
+        { "label": "No", "next": "MARRIAGE_DURATION_CHECK" }
+      ]
+    },
+    "EMERGENCY_PPO": {
+      "type": "ACTION_ALERT",
+      "content": "Immediate Action: You may need a Personal Protection Order (PPO).",
+      "links": ["https://www.judiciary.gov.sg/family/apply-personal-protection-order"],
+      "next": "MARRIAGE_DURATION_CHECK"
+    },
+    "MARRIAGE_DURATION_CHECK": {
+      "question": "How long have you been married?",
+      "options": [
+        { "label": "Less than 3 years", "next": "THREE_YEAR_RULE_LIMIT" },
+        { "label": "3 years or more", "next": "CHILDREN_CHECK" }
+      ]
+    },
+    "THREE_YEAR_RULE_LIMIT": {
+      "type": "LEGAL_NOTE",
+      "content": "Section 94 Rule: You generally cannot file for divorce before 3 years without 'exceptional depravity' or 'hardship'.",
+      "next": "CHILDREN_CHECK"
+    },
+    "CHILDREN_CHECK": {
+      "question": "Do you have children under 21 years old?",
+      "options": [
+        { "label": "Yes", "next": "MANDATORY_CPP" },
+        { "label": "No", "next": "READY_FOR_QUANT" }
+      ]
+    },
+    "MANDATORY_CPP": {
+      "type": "REQUIRED_STEP",
+      "content": "Mandatory Co-Parenting Programme (CPP): You MUST complete this before filing if you have minor children.",
+      "links": ["https://msf.gov.sg/dfcs/cpp"],
+      "next": "READY_FOR_QUANT"
+    },
+    "READY_FOR_QUANT": {
+      "type": "HANDOFF",
+      "content": "Procedural triage complete. Passing you to the Quant Agent for asset division analysis.",
+      "handoffTo": "agent-b-quant"
+    }
+  }
+}

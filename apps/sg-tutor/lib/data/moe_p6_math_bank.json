@@ -1,0 +1,39 @@
+[
+  {
+    "id": "p6_math_fractions_01",
+    "topic": "Fractions",
+    "question": "Jane had 240 stickers. She gave 1/4 of them to Mary and 2/5 of the remainder to Tom. How many stickers did Jane have left?",
+    "solution_steps": [
+      "Step 1: Find the number of stickers given to Mary. 1/4 × 240 = 60 stickers.",
+      "Step 2: Find the remainder after giving to Mary. 240 − 60 = 180 stickers.",
+      "Step 3: Find the number of stickers given to Tom. 2/5 × 180 = 72 stickers.",
+      "Step 4: Find the number of stickers Jane had left. 180 − 72 = 108 stickers."
+    ],
+    "final_answer": "108 stickers"
+  },
+  {
+    "id": "p6_math_speed_01",
+    "topic": "Speed",
+    "question": "Ali cycled from Town A to Town B at a speed of 12 km/h. He took 3 hours. On the return trip, he increased his speed to 18 km/h. How long did the return trip take? What was his average speed for the whole journey?",
+    "solution_steps": [
+      "Step 1: Find the distance from Town A to Town B. Distance = Speed × Time = 12 × 3 = 36 km.",
+      "Step 2: Find the time for the return trip. Time = Distance ÷ Speed = 36 ÷ 18 = 2 hours.",
+      "Step 3: Find the total distance for the whole journey. 36 + 36 = 72 km.",
+      "Step 4: Find the total time for the whole journey. 3 + 2 = 5 hours.",
+      "Step 5: Find the average speed. Average Speed = Total Distance ÷ Total Time = 72 ÷ 5 = 14.4 km/h."
+    ],
+    "final_answer": "Return trip: 2 hours. Average speed: 14.4 km/h."
+  },
+  {
+    "id": "p6_math_algebra_01",
+    "topic": "Algebra",
+    "question": "Sarah thinks of a number. She multiplies it by 3 and then adds 7. The result is 28. What is the number Sarah is thinking of?",
+    "solution_steps": [
+      "Step 1: Let the unknown number be x.",
+      "Step 2: Write the equation from the word problem. 3x + 7 = 28.",
+      "Step 3: Subtract 7 from both sides. 3x = 28 − 7 = 21.",
+      "Step 4: Divide both sides by 3. x = 21 ÷ 3 = 7."
+    ],
+    "final_answer": "The number is 7."
+  }
+]

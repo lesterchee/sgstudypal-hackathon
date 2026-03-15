@@ -1,0 +1,66 @@
+[
+    {
+        "timestamp": "2026-03-01T16:06:59+08:00",
+        "mission": "Environment & LLM Migration",
+        "severity": "Medium",
+        "incident": "Legacy AI Boilerplate Artifacts",
+        "details": "Discovered legacy generic Next.js AI boilerplate artifacts (OPENAI_API_KEY in .env.example).",
+        "resolution": "Executed system logic review. Refactored to Google Gemini. Global types updated. Zero TS errors confirmed."
+    },
+    {
+        "timestamp": "2026-03-01T11:45:00+08:00",
+        "mission": "Enterprise Hardening (Thread 1 & 2)",
+        "severity": "Low",
+        "incident": "Turbopack Build Failure",
+        "details": "Next.js build threw a Server Component error in useLegalEngine.ts.",
+        "resolution": "Prepended 'use client' directive to useLegalEngine.ts in @repo/ui-legal to resolve serialization context."
+    },
+    {
+        "timestamp": "2026-03-01T11:58:00+08:00",
+        "mission": "2026 Regulatory Compliance Sweep",
+        "severity": "Medium",
+        "incident": "Missing explicit UI Confirmation gate & Non-compliant Case IDs",
+        "details": "IMDA Zero-Knowledge rules require AES encryption tied to a stateless cryptographic Case ID, with a hard UI barrier for PII confirmation.",
+        "resolution": "Built session-vault for 12-char cryptorandom derivation. Exported AgenticCheckpoint and wired into FairWorkTriage and DivorceTriage workflows."
+    },
+    {
+        "timestamp": "2026-03-01T13:01:00+08:00",
+        "mission": "Red-Team Patch Protocol",
+        "severity": "High",
+        "incident": "Security Vulnerabilities in Handoff Protocol & Math Files",
+        "details": "AES-256-GCM relied on master .env. Contract math was unprotected from agent changes. UPL instructions were missing.",
+        "resolution": "Enforced PBKDF2 with Case IDs. Implemented TTL in Firestore objects. Expanded lock-check.ts to master-lock-check.ts. Injected strict Anti-UPL clauses into global-system-prompt.ts."
+    },
+    {
+        "timestamp": "2026-03-01T13:14:00+08:00",
+        "mission": "Red-Team Patches Round 2",
+        "severity": "High",
+        "incident": "Turbopack Build Failure - Edge Runtime & React Node Typings",
+        "details": "Vercel SDK Edge Runtime rejected node:crypto imports natively brought in by session-vault.ts. Additionally, Next.js Layout app router enforced strict ReactNode typings clashing with Turborepo packages.",
+        "resolution": "Converted route.ts to Node.js runtime. Casted {children as any} in the Next layouts to bypass internal React version clashes between ui-legal and apps."
+    },
+    {
+        "timestamp": "2026-03-01T13:40:00+08:00",
+        "mission": "Final Pre-Launch Infra Patches",
+        "severity": "High",
+        "incident": "EDoS Vulnerability, Missing Auth Pre-Checks, Unhandled Upstream Gemini Failures, and Missing Security Headers",
+        "details": "Lack of rate limiting exposed API endpoints to EDoS. App dispatched payloads to Gemini without verifying Case IDs existed, wasting quota. UIs lacked degraded modes during upstream AI outages. Missing strict security headers.",
+        "resolution": "Implemented Vercel Edge Middleware using @upstash/ratelimit. Hooked getDoc into Next.js routes for Auth Pre-Check. Created Gemini Circuit Breaker in @repo/legal-engine, catching 503s with DegradedModeFallback UI and forced ZeroKnowledgeConsentModal. Injected strict security headers in next.config.ts."
+    },
+    {
+        "timestamp": "2026-03-06T12:50:00+08:00",
+        "mission": "Pedagogical Engine — Sprint 3 (RAG & Chronological State)",
+        "severity": "Medium",
+        "incident": "Cloud Functions directory included in main Next.js tsc build",
+        "details": "The `functions/src/index.ts` file was picked up by the main `tsconfig.json` glob (`**/*.ts`), causing TS2307 for `firebase-functions/v2/scheduler` which is only installed in the functions workspace.",
+        "resolution": "Self-healed: added `functions` to the `exclude` array in `apps/sg-tutor/tsconfig.json`. Zero TS errors confirmed after fix."
+    },
+    {
+        "timestamp": "2026-03-11T17:40:00+08:00",
+        "mission": "Data Pipeline Organization — Sprint 128",
+        "severity": "Low",
+        "incident": "Mass Unstructured Dataset (5,800+ PDFs)",
+        "details": "Raw dumped PDFs needed strict hierarchical mapping (Year/Level/Subject) for structured Firebase ingestion. High risk of script failure due to malformed filenames.",
+        "resolution": "Implemented `sort-pdfs.ts` using strict Regex extractions and self-healing unknown-folder fallbacks. Verified via `tsc --noEmit` build check."
+    }
+]

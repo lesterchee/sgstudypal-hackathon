@@ -1,0 +1,37 @@
+{
+  "name": "sgdivorceai",
+  "private": true,
+  "engines": {
+    "node": "20.x"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "log-incident": "npx tsx scripts/log-incident.ts",
+    "crawl": "tsx scripts/data-pipeline/crawl.ts",
+    "scrape:deep": "tsx scripts/data-pipeline/deep-scrape.ts"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5",
+    "turbo": "latest",
+    "typescript": "^5.4.0"
+  },
+  "packageManager": "npm@10.5.0",
+  "dependencies": {
+    "@ai-sdk/google": "^3.0.33",
+    "@mendable/firecrawl-js": "^4.15.1",
+    "@upstash/ratelimit": "^2.0.8",
+    "@upstash/redis": "^1.36.3",
+    "ai": "^6.0.104",
+    "dotenv": "^17.3.1",
+    "firebase": "^12.10.0",
+    "firebase-admin": "^13.7.0",
+    "tsx": "^4.21.0"
+  }
+}

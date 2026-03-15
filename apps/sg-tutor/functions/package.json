@@ -1,0 +1,21 @@
+{
+    "name": "sg-tutor-functions",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "build": "tsc",
+        "lint": "eslint --ext .ts src/"
+    },
+    "engines": {
+        "node": "18"
+    },
+    "main": "lib/index.js",
+    "dependencies": {
+        "firebase-admin": "^13.0.0",
+        "firebase-functions": "^6.3.0"
+    },
+    "devDependencies": {
+        "typescript": "^5.0.0",
+        "@types/node": "^20.0.0"
+    }
+}

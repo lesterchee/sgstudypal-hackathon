@@ -1,0 +1,47 @@
+{
+  "name": "sg-tutor",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "crawl:sgexam": "npx ts-node scripts/crawl-sgexam.ts",
+    "sort:pdfs": "npx ts-node --esm scripts/sort-pdfs.ts"
+  },
+  "dependencies": {
+    "@ai-sdk/alibaba": "^1.0.10",
+    "@ai-sdk/google": "^3.0.43",
+    "@ai-sdk/react": "^3.0.118",
+    "@trigger.dev/sdk": "^4.4.2",
+    "ai": "^6.0.116",
+    "canvas-confetti": "^1.9.4",
+    "cheerio": "^1.2.0",
+    "clsx": "^2.1.1",
+    "firebase": "^12.10.0",
+    "lucide-react": "^0.576.0",
+    "next": "14.2.35",
+    "pdf-lib": "^1.17.1",
+    "react": "^18",
+    "react-confetti": "^6.4.0",
+    "react-dom": "^18",
+    "tailwind-merge": "^3.5.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "axios": "^1.13.6",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.35",
+    "playwright": "^1.58.2",
+    "postcss": "^8",
+    "puppeteer": "^24.38.0",
+    "tailwindcss": "^3.4.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5"
+  }
+}

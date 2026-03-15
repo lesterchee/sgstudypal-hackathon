@@ -1,0 +1,54 @@
+{
+    "source_url": "https://sso.agc.gov.sg/Act/WC1961#pr112-",
+    "last_updated": "2026-02-27",
+    "logic_chunks": [
+        {
+            "clause": "112(1)",
+            "description": "The court has the power to order the division of matrimonial assets between parties in such proportions as the court thinks just and equitable, or the sale of any such asset and the division of the proceeds."
+        },
+        {
+            "clause": "112(2)(a)",
+            "description": "Factor: Extent of contributions made by each party in money, property, or work towards acquiring, improving, or maintaining the matrimonial assets."
+        },
+        {
+            "clause": "112(2)(b)",
+            "description": "Factor: Any debt owing or obligation incurred by either party for their joint benefit or for the benefit of any child of the marriage."
+        },
+        {
+            "clause": "112(2)(c)",
+            "description": "Factor: The needs of the children (if any) of the marriage."
+        },
+        {
+            "clause": "112(2)(d)",
+            "description": "Factor: Extent of contributions made by each party to the welfare of the family, including looking after the home or caring for the family or any aged or infirm relative or dependant."
+        },
+        {
+            "clause": "112(2)(e)",
+            "description": "Factor: Any agreement between the parties with respect to the ownership and division of the matrimonial assets made in contemplation of divorce."
+        },
+        {
+            "clause": "112(2)(f)",
+            "description": "Factor: Any period of rent-free occupation or other benefit enjoyed by one party in the matrimonial home to the exclusion of the other party."
+        },
+        {
+            "clause": "112(2)(g)",
+            "description": "Factor: The assistance given by one party to the other party (material or intangible) which aids the other party in the carrying on of his or her occupation or business."
+        },
+        {
+            "clause": "112(2)(h)",
+            "description": "Factor: The matters referred to in section 114(1) (standard of living, age of parties, duration of marriage, etc.) so far as they are relevant."
+        },
+        {
+            "clause": "112(10)(a)",
+            "description": "Defines matrimonial asset as any asset acquired before marriage that was ordinarily used/enjoyed by the family for shelter, household, or recreational purposes, or has been substantially improved during the marriage."
+        },
+        {
+            "clause": "112(10)(b)",
+            "description": "Defines matrimonial asset as any other asset of any nature acquired during marriage by one or both parties."
+        },
+        {
+            "clause": "112(10) exclusion",
+            "description": "Excludes assets (except the matrimonial home) acquired by gift or inheritance that have not been substantially improved during the marriage by the other party or both parties."
+        }
+    ]
+}

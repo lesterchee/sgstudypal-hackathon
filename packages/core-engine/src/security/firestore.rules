@@ -1,0 +1,87 @@
+// Purpose: Defines strict Firebase Security Rules governing role-based access for the application and enforces structural constraints for Ghost Data Protocol payload creation.
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Explicit deny by default
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Purpose: Secure the Ghost Data gamification state. Users can only read/write their own profiles.
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    match /trainers/{trainerId} {
+      // Trainers can read/write their own profile
+      allow read, write: if request.auth != null && request.auth.uid == trainerId;
+    }
+
+    match /clients/{clientId} {
+      // Trainers can read/write their own clients
+      allow read, write: if request.auth != null 
+                         && resource.data.trainerId == request.auth.uid;
+      // Clients can read their own profile
+      allow read: if request.auth != null && request.auth.uid == clientId;
+    }
+
+    match /sessionPackages/{packageId} {
+      allow read, write: if request.auth != null && resource.data.trainerId == request.auth.uid;
+      allow read: if request.auth != null && resource.data.clientId == request.auth.uid;
+    }
+
+    match /fitnessLogs/{logId} {
+      // Clients can read/write their own logs
+      allow read, write: if request.auth != null && resource.data.clientId == request.auth.uid;
+      
+      // Trainers can also read logs they are assigned to
+      allow read: if request.auth != null && resource.data.trainerId == request.auth.uid;
+      
+      // Enforcing Ghost Data Protocol creation
+      allow create: if request.auth != null
+                    && request.resource.data.clientId == request.auth.uid
+                    && request.resource.data.logData.keys().hasAll(['iv', 'authTag', 'ciphertext', 'version', 'expiresAt', 'userId'])
+                    && request.resource.data.logData.version == 1
+                    && request.resource.data.logData.userId == request.auth.uid;
+
+      // Optimistic Concurrency Control for EncryptedPayload
+      allow update: if request.auth != null
+                    && request.resource.data.clientId == request.auth.uid
+                    && resource.data.clientId == request.auth.uid
+                    && request.resource.data.logData.version == resource.data.logData.version + 1
+                    && request.resource.data.logData.keys().hasAll(['iv', 'authTag', 'ciphertext', 'version', 'expiresAt', 'userId'])
+                    && request.resource.data.logData.userId == resource.data.logData.userId;
+    }
+
+    // -----------------------------------------------------------------
+    // hairspa-bot: CommitPay AI — Bot configuration & Lead management
+    // -----------------------------------------------------------------
+
+    match /bots/{botId} {
+      // Merchants can only create bots assigned to their own orgId.
+      allow create: if request.auth != null && request.auth.uid == request.resource.data.orgId;
+      // Merchants can only read/update/delete their own bots.
+      allow read, update, delete: if request.auth != null && request.auth.uid == resource.data.orgId;
+    }
+
+    match /leads/{leadId} {
+      // Purpose (Audit 3.4): Schema-validated creation. Any writer (internal
+      // or external) MUST include the four mandatory fields. This is the sole
+      // enforcement layer since lead creation happens outside this codebase.
+      // Purpose (Audit 3.2): Forcing `isArchived == false` at creation
+      // guarantees the CRM's `where("isArchived", "==", false)` onSnapshot
+      // query will always surface new leads.
+      allow create: if request.resource.data.keys().hasAll(['botId', 'orgId', 'createdAt', 'isArchived'])
+                    && request.resource.data.botId is string
+                    && request.resource.data.orgId is string
+                    && request.resource.data.createdAt is int
+                    && request.resource.data.isArchived is bool
+                    && request.resource.data.isArchived == false;
+      // Purpose: Enforce strict multi-tenant boundaries so merchants can only access CRM leads belonging to their specific organization.
+      // Purpose: Hard deletes are prohibited — use isArchived:true for soft deletes (audit compliance).
+      allow read, update: if request.auth != null && resource.data.orgId == request.auth.uid;
+    }
+  }
+}

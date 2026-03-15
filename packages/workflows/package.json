@@ -1,0 +1,14 @@
+{
+    "name": "@repo/workflows",
+    "version": "1.0.0",
+    "private": true,
+    "main": "src/index.ts",
+    "dependencies": {
+        "firebase-admin": "^11.11.0",
+        "crypto": "^1.0.1"
+    },
+    "devDependencies": {
+        "typescript": "^5.0.0",
+        "@types/node": "^20.0.0"
+    }
+}

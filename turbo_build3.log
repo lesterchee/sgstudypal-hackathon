@@ -1,0 +1,121 @@
+• turbo 2.8.11
+• Packages in scope: @repo/legal-engine, @repo/ui-legal, @repo/workflows, sg-divorce, sg-fairwork, sg-propertylaw
+• Running build in 6 packages
+• Remote caching disabled
+@repo/legal-engine:build: cache hit, replaying logs 7d1ff6aac1b385e1
+@repo/legal-engine:build: 
+@repo/legal-engine:build: 
+@repo/legal-engine:build: > @repo/legal-engine@1.0.0 build
+@repo/legal-engine:build: > tsc
+@repo/legal-engine:build: 
+@repo/legal-engine:build: ⠙[1G[0K
+sg-propertylaw:build: cache miss, executing c8b75af3dd2a6f04
+sg-divorce:build: cache miss, executing 6c63a7c2494aa328
+sg-fairwork:build: cache miss, executing 624f64993a6e374c
+sg-divorce:build: 
+sg-divorce:build: > sg-divorce@0.1.0 build
+sg-divorce:build: > next build
+sg-divorce:build: 
+sg-fairwork:build: 
+sg-fairwork:build: > sg-fairwork@0.1.0 build
+sg-fairwork:build: > next build
+sg-fairwork:build: 
+sg-propertylaw:build: 
+sg-propertylaw:build: > sg-propertylaw@0.1.0 build
+sg-propertylaw:build: > next build
+sg-propertylaw:build: 
+sg-fairwork:build: ▲ Next.js 16.1.6 (Turbopack)
+sg-fairwork:build: 
+sg-propertylaw:build: ▲ Next.js 16.1.6 (Turbopack)
+sg-propertylaw:build: 
+sg-fairwork:build: ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+sg-propertylaw:build: ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+sg-divorce:build: ▲ Next.js 16.1.6 (Turbopack)
+sg-divorce:build: 
+sg-divorce:build: ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+sg-fairwork:build:   Creating an optimized production build ...
+sg-propertylaw:build:   Creating an optimized production build ...
+sg-divorce:build:   Creating an optimized production build ...
+sg-fairwork:build: ✓ Compiled successfully in 1357.3ms
+sg-fairwork:build:   Running TypeScript ...
+sg-propertylaw:build: ✓ Compiled successfully in 1407.3ms
+sg-propertylaw:build:   Running TypeScript ...
+sg-divorce:build: ✓ Compiled successfully in 1497.0ms
+sg-divorce:build:   Running TypeScript ...
+sg-fairwork:build:   Collecting page data using 13 workers ...
+sg-propertylaw:build:   Collecting page data using 13 workers ...
+sg-fairwork:build:   Generating static pages using 13 workers (0/4) ...
+sg-propertylaw:build:   Generating static pages using 13 workers (0/4) ...
+sg-fairwork:build:   Generating static pages using 13 workers (1/4) 
+sg-fairwork:build:   Generating static pages using 13 workers (2/4) 
+sg-fairwork:build:   Generating static pages using 13 workers (3/4) 
+sg-fairwork:build: ✓ Generating static pages using 13 workers (4/4) in 167.0ms
+sg-fairwork:build:   Finalizing page optimization ...
+sg-fairwork:build: 
+sg-fairwork:build: Route (app)
+sg-fairwork:build: ┌ ○ /
+sg-fairwork:build: └ ○ /_not-found
+sg-fairwork:build: 
+sg-fairwork:build: 
+sg-fairwork:build: ƒ Proxy (Middleware)
+sg-fairwork:build: 
+sg-fairwork:build: ○  (Static)  prerendered as static content
+sg-fairwork:build: 
+sg-propertylaw:build:   Generating static pages using 13 workers (1/4) 
+sg-propertylaw:build:   Generating static pages using 13 workers (2/4) 
+sg-propertylaw:build:   Generating static pages using 13 workers (3/4) 
+sg-propertylaw:build: ✓ Generating static pages using 13 workers (4/4) in 162.2ms
+sg-propertylaw:build:   Finalizing page optimization ...
+sg-propertylaw:build: 
+sg-propertylaw:build: Route (app)
+sg-propertylaw:build: ┌ ○ /
+sg-propertylaw:build: ├ ○ /_not-found
+sg-propertylaw:build: └ ƒ /guides/[slug]
+sg-propertylaw:build: 
+sg-propertylaw:build: 
+sg-propertylaw:build: ƒ Proxy (Middleware)
+sg-propertylaw:build: 
+sg-propertylaw:build: ○  (Static)   prerendered as static content
+sg-propertylaw:build: ƒ  (Dynamic)  server-rendered on demand
+sg-propertylaw:build: 
+sg-divorce:build: Failed to compile.
+sg-divorce:build: 
+sg-divorce:build: ./src/trigger/legal-assessment.ts:1:22
+sg-divorce:build: Type error: Cannot find module '@trigger.dev/sdk/v3' or its corresponding type declarations.
+sg-divorce:build: 
+sg-divorce:build: [0m[31m[1m>[22m[39m[90m 1 |[39m [36mimport[39m { task } [36mfrom[39m [32m"@trigger.dev/sdk/v3"[39m[33m;[39m
+sg-divorce:build:  [90m   |[39m                      [31m[1m^[22m[39m
+sg-divorce:build:  [90m 2 |[39m [36mimport[39m { executeLegalAssessment } [36mfrom[39m [32m"@/lib/agents/legal-orchestrator"[39m[33m;[39m
+sg-divorce:build:  [90m 3 |[39m
+sg-divorce:build:  [90m 4 |[39m [36mexport[39m [36mconst[39m processLegalInquiry [33m=[39m task({[0m
+sg-divorce:build: Next.js build worker exited with code: 1 and signal: null
+sg-divorce:build: npm error Lifecycle script `build` failed with error:
+sg-divorce:build: npm error code 1
+sg-divorce:build: npm error path /Users/lesterchee/Desktop/sgdivorceai/apps/sg-divorce
+sg-divorce:build: npm error workspace sg-divorce@0.1.0
+sg-divorce:build: npm error location /Users/lesterchee/Desktop/sgdivorceai/apps/sg-divorce
+sg-divorce:build: npm error command failed
+sg-divorce:build: npm error command sh -c next build
+sg-divorce:build: ERROR: command finished with error: command (/Users/lesterchee/Desktop/sgdivorceai/apps/sg-divorce) /usr/local/bin/npm run build exited (1)
+sg-propertylaw:build: npm error Lifecycle script `build` failed with error:
+sg-fairwork:build: npm error Lifecycle script `build` failed with error:
+sg-propertylaw:build: npm error code 130
+sg-fairwork:build: npm error code 130
+sg-fairwork:build: npm error path /Users/lesterchee/Desktop/sgdivorceai/apps/sg-fairwork
+sg-propertylaw:build: npm error path /Users/lesterchee/Desktop/sgdivorceai/apps/sg-propertylaw
+sg-propertylaw:build: npm error workspace sg-propertylaw@0.1.0
+sg-fairwork:build: npm error workspace sg-fairwork@0.1.0
+sg-propertylaw:build: npm error location /Users/lesterchee/Desktop/sgdivorceai/apps/sg-propertylaw
+sg-fairwork:build: npm error location /Users/lesterchee/Desktop/sgdivorceai/apps/sg-fairwork
+sg-propertylaw:build: npm error command failed
+sg-fairwork:build: npm error command failed
+sg-propertylaw:build: npm error command sh -c next build
+sg-fairwork:build: npm error command sh -c next build
+sg-divorce#build: command (/Users/lesterchee/Desktop/sgdivorceai/apps/sg-divorce) /usr/local/bin/npm run build exited (1)
+
+ Tasks:    1 successful, 4 total
+Cached:    1 cached, 4 total
+  Time:    3.825s 
+Failed:    sg-divorce#build
+
+ ERROR  run failed: command  exited (1)

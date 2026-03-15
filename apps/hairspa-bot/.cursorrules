@@ -1,0 +1,13 @@
+# Hairspa-Bot Domain Rules & Institutional Memory
+
+## 1. The Fallback Sync Rule (CRITICAL)
+- The frontend fallback pricing (`page.tsx`) and the backend fallback pricing (`/api/chat/route.ts` or `promptBuilder.ts`) MUST ALWAYS remain perfectly synchronized (e.g., $28/$10).
+- If you alter the default pricing logic on the backend, you must simultaneously update the frontend fallback to prevent state desyncs.
+
+## 2. Quick-Reply Button Resilience
+- NEVER use strict string matching (e.g., `text === "exact string"`) to determine if quick-reply buttons should render.
+- ALWAYS use `.toLowerCase().includes()` with flexible keywords (e.g., `includes("offer")`, `includes("outlet")`, `includes("time")`) because the LLM will naturally vary its phrasing.
+
+## 3. The Golden Schema (Bot Generation)
+- When building features to create new bots, DO NOT hallucinate database schemas.
+- Treat the MVP bot document in Firestore as the "Golden Schema." New bots should strictly duplicate this structure, altering only the `botName`, `pricing`, and `merchantId`/`userId`.

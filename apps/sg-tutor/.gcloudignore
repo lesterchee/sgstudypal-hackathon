@@ -1,0 +1,14 @@
+# 1. Ignore absolutely everything by default
+*
+
+# 2. Allow only the exact files needed for the Cloud Build
+!cloudbuild.yaml
+!Dockerfile
+!.dockerignore
+
+# 3. Allow only the pre-compiled Next.js binaries and public assets
+!public/
+!public/**
+!.next/
+!.next/standalone/**
+!.next/static/**

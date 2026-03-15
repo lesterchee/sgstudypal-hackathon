@@ -1,0 +1,30 @@
+{
+    "version": "2026",
+    "rates": {
+        "foreigner": 0.60,
+        "sc_second_property": 0.20,
+        "sc_third_plus": 0.30
+    },
+    "mannerOfHolding": {
+        "jointTenancy": {
+            "survivorshipRule": true,
+            "notes": "Property bypasses the Will (important for sgwills.ai integration!)."
+        },
+        "tenantsInCommon": {
+            "survivorshipRule": false,
+            "notes": "Deceased's share is distributed according to their Will or intestate laws."
+        }
+    },
+    "flags": {
+        "decoupling": {
+            "triggerKeywords": [
+                "removing a name to buy a second property",
+                "remove name to buy second property",
+                "decoupling"
+            ],
+            "action": "trigger_high_complexity_warning",
+            "system": "ConfidenceMonitor",
+            "warningMessage": "Potential '99-to-1' anti-avoidance audits by IRAS."
+        }
+    }
+}

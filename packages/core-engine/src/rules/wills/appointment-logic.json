@@ -1,0 +1,23 @@
+{
+  "statute": "Wills Act 1838",
+  "section": 9,
+  "title": "Gifts to an attesting witness or to wife or husband of attesting witness to be void",
+  "rules": [
+    {
+      "condition": "A beneficiary (or their spouse) acts as a witness to the will",
+      "action": "The gift to that beneficiary is rendered void",
+      "notes": "The will itself remains valid, but the specific geometric gift to the witness fails."
+    }
+  ],
+  "requirements": {
+    "witnesses": {
+      "minimum_count": 2,
+      "presence": "Must be present at the same time when the testator signs or acknowledges the signature",
+      "capacity": "Must be sound of mind and not blind"
+    },
+    "testator": {
+      "minimum_age": 21,
+      "capacity": "Must have testamentary capacity (sound mind, memory, and understanding)"
+    }
+  }
+}

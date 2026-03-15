@@ -1,0 +1,275 @@
+{
+    "science_p5_water_cycle": {
+        "mandatory_keywords": [
+            "evaporation",
+            "condensation",
+            "water vapour",
+            "gained heat",
+            "lost heat",
+            "boiling point"
+        ],
+        "forbidden_words": [
+            "got hotter",
+            "turned into clouds",
+            "steam",
+            "melted into gas"
+        ],
+        "core_concept": "Water changes state based on heat transfer. Evaporation happens at any temperature; boiling happens at 100 degrees Celsius."
+    },
+    "science_p5_plant_transport": {
+        "mandatory_keywords": [
+            "water-carrying tubes",
+            "food-carrying tubes",
+            "roots",
+            "stem",
+            "leaves"
+        ],
+        "forbidden_words": [
+            "xylem",
+            "phloem",
+            "veins",
+            "blood vessels"
+        ],
+        "core_concept": "Plants transport water/minerals from roots to leaves, and food from leaves to all parts of the plant. Do NOT use secondary school terms like xylem or phloem."
+    },
+    "science_p4_light_shadows": {
+        "mandatory_keywords": [
+            "travels in a straight line",
+            "blocked by an opaque object",
+            "light source",
+            "shadow"
+        ],
+        "forbidden_words": [
+            "light bends",
+            "darkness covered it",
+            "silhouette"
+        ],
+        "core_concept": "Shadows are formed when light, which travels in a straight line, is blocked by an opaque or translucent object."
+    },
+    "math_p1_number_bonds": {
+        "mandatory_keywords": [
+            "number bond",
+            "part",
+            "whole",
+            "make 10",
+            "number train"
+        ],
+        "forbidden_words": [
+            "algebra",
+            "solve for x",
+            "equations",
+            "minus sign (before formal introduction)"
+        ],
+        "core_concept": "Establish part-whole relationships using physical counting blocks or pictorial representations before introducing formal + and - operators."
+    },
+    "math_p4_whole_numbers": {
+        "mandatory_keywords": [
+            "models",
+            "units",
+            "parts",
+            "total",
+            "difference",
+            "remainder"
+        ],
+        "forbidden_words": [
+            "algebra",
+            "solve for x",
+            "variables",
+            "equations"
+        ],
+        "core_concept": "Solve word problems using the Concrete-Pictorial-Abstract (CPA) approach. Students must draw bar models to represent unknown quantities."
+    },
+    "math_p6_ratio": {
+        "mandatory_keywords": [
+            "equivalent ratios",
+            "unchanged total",
+            "constant difference",
+            "internal transfer",
+            "units"
+        ],
+        "forbidden_words": [
+            "cross-multiply",
+            "algebraic substitution",
+            "x and y"
+        ],
+        "core_concept": "Compare quantities using units. Identify if the heuristic is 'Total Unchanged', 'Difference Unchanged', or 'One Quantity Unchanged'."
+    },
+    "english_upper_synthesis_reported": {
+        "mandatory_keywords": [
+            "past perfect tense",
+            "the previous day",
+            "the following day",
+            "whether",
+            "if"
+        ],
+        "forbidden_words": [
+            "yesterday",
+            "tomorrow",
+            "present tense",
+            "comma",
+            "quotation marks"
+        ],
+        "core_concept": "Transform direct speech to reported speech by shifting tenses backwards one step and updating time/place markers. Punctuation must be perfectly strict."
+    },
+    "chinese_upper_composition": {
+        "mandatory_keywords": [
+            "起因",
+            "经过",
+            "结果",
+            "感想",
+            "好词好句"
+        ],
+        "forbidden_words": [
+            "english translation",
+            "hanyu pinyin (unless requested)"
+        ],
+        "core_concept": "Structure the narrative clearly. The story must have a moral lesson or reflection (感想) at the end. Use appropriate idioms (成语) where natural."
+    },
+    "chinese_sg_localization": {
+        "mandatory_keywords": [
+            "德士",
+            "黄梨",
+            "巴刹",
+            "组屋",
+            "巴士",
+            "罗厘",
+            "甘榜"
+        ],
+        "forbidden_words": [
+            "出租车",
+            "菠萝",
+            "菜市场",
+            "小区",
+            "公交车",
+            "卡车",
+            "村庄"
+        ],
+        "core_concept": "Strictly adhere to Singapore MOE local vocabulary. Penalize standard Mainland/Taiwanese terms. When the student uses a non-SG term, immediately correct with the local equivalent and explain: 'In Singapore, we say [SG term], not [non-SG term].'"
+    },
+    "science_p4_heat": {
+        "mandatory_keywords": [
+            "gained heat from",
+            "lost heat to",
+            "heat source",
+            "conductor",
+            "insulator",
+            "temperature"
+        ],
+        "forbidden_words": [
+            "got hotter",
+            "got colder",
+            "warm up",
+            "cool down",
+            "absorb heat"
+        ],
+        "core_concept": "Objects gain heat from a hotter source and lose heat to a cooler sink. Use ONLY 'gained heat from' and 'lost heat to' phrasing. Never say 'got hotter' — this is a 0-mark trap in PSLE."
+    },
+    "science_p4_states_of_matter": {
+        "mandatory_keywords": [
+            "reached its melting point",
+            "reached its boiling point",
+            "gained enough heat",
+            "lost enough heat",
+            "change of state"
+        ],
+        "forbidden_words": [
+            "turned into steam",
+            "became gas",
+            "melted into liquid",
+            "froze solid",
+            "vaporized"
+        ],
+        "core_concept": "Matter changes state when it gains or loses enough heat to reach its melting/boiling point. Use strict MOE phrasing: 'reached its boiling point' NOT 'turned into steam'. This is a critical 0-mark PSLE trap."
+    },
+    "science_p3_magnets": {
+        "mandatory_keywords": [
+            "magnetic material",
+            "non-magnetic material",
+            "attract",
+            "repel",
+            "north pole",
+            "south pole",
+            "like poles repel",
+            "unlike poles attract"
+        ],
+        "forbidden_words": [
+            "metal",
+            "iron is magnetic because it is metal",
+            "all metals are magnetic",
+            "stick to"
+        ],
+        "core_concept": "NOT all metals are magnetic — only iron, steel, cobalt, and nickel. Copper, aluminium, gold, and silver are metals but NOT magnetic materials. Say 'magnetic material' not just 'metal'. The word 'stick to' must be replaced with 'attract'."
+    },
+    "math_heuristics_p1_p2": {
+        "mandatory_keywords": [
+            "number bond",
+            "counting",
+            "grouping",
+            "part-whole",
+            "concrete objects",
+            "pictorial representation"
+        ],
+        "forbidden_words": [
+            "algebra",
+            "solve for x",
+            "variable",
+            "equation",
+            "substitution",
+            "simultaneous",
+            "assumption method"
+        ],
+        "core_concept": "P1-P2 students must use ONLY concrete counting, number bonds, and pictorial methods. Algebra is STRICTLY FORBIDDEN. Do not use any algebraic notation, variables, or equation-solving terminology."
+    },
+    "math_heuristics_p3_p4": {
+        "mandatory_keywords": [
+            "bar model",
+            "part-whole model",
+            "comparison model",
+            "units",
+            "draw the model",
+            "label the parts"
+        ],
+        "forbidden_words": [
+            "algebra",
+            "let x be",
+            "solve for x",
+            "simultaneous equations",
+            "assumption method",
+            "substitution"
+        ],
+        "core_concept": "P3-P4 students MUST use Bar Models (Part-Whole or Comparison). The model method is mandatory for multi-step word problems. Do not introduce algebra. Always say 'draw the model' before solving."
+    },
+    "math_heuristics_p5": {
+        "mandatory_keywords": [
+            "assumption method",
+            "suppose all",
+            "excess",
+            "shortage",
+            "bar model",
+            "ratio model"
+        ],
+        "forbidden_words": [
+            "simultaneous equations",
+            "let x and y",
+            "algebraic substitution",
+            "linear equation"
+        ],
+        "core_concept": "P5 introduces the Assumption Method: 'Suppose all items are Type A, then the excess/shortage is...' This is the ONLY acceptable method for guess-and-check problems. Do NOT use simultaneous equations or algebraic substitution."
+    },
+    "math_heuristics_p6": {
+        "mandatory_keywords": [
+            "let the unknown be",
+            "substitution",
+            "simplify the expression",
+            "bar model",
+            "algebra"
+        ],
+        "forbidden_words": [
+            "simultaneous equations",
+            "quadratic",
+            "factorization",
+            "completing the square"
+        ],
+        "core_concept": "P6 introduces basic linear algebra: 'Let the unknown be x'. Simple substitution and expression simplification are allowed. Bar models should still be used alongside algebra. Do NOT use secondary school methods like simultaneous equations or quadratics."
+    }
+}

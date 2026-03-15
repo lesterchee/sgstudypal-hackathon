@@ -1,0 +1,107 @@
+• turbo 2.8.11
+• Packages in scope: @repo/legal-engine, @repo/ui-legal, @repo/workflows, sg-divorce, sg-fairwork, sg-propertylaw
+• Running build in 6 packages
+• Remote caching disabled
+@repo/legal-engine:build: cache hit, replaying logs 7d1ff6aac1b385e1
+@repo/legal-engine:build: 
+@repo/legal-engine:build: 
+@repo/legal-engine:build: > @repo/legal-engine@1.0.0 build
+@repo/legal-engine:build: > tsc
+@repo/legal-engine:build: 
+@repo/legal-engine:build: ⠙[1G[0K
+sg-propertylaw:build: cache miss, executing e79814e71d065c39
+sg-divorce:build: cache miss, executing 206551cf7255f768
+sg-fairwork:build: cache miss, executing 2704a32960b8f07d
+sg-propertylaw:build: 
+sg-propertylaw:build: > sg-propertylaw@0.1.0 build
+sg-propertylaw:build: > next build
+sg-propertylaw:build: 
+sg-divorce:build: 
+sg-divorce:build: > sg-divorce@0.1.0 build
+sg-divorce:build: > next build
+sg-divorce:build: 
+sg-fairwork:build: 
+sg-fairwork:build: > sg-fairwork@0.1.0 build
+sg-fairwork:build: > next build
+sg-fairwork:build: 
+sg-fairwork:build: ▲ Next.js 16.1.6 (Turbopack)
+sg-fairwork:build: 
+sg-fairwork:build: ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+sg-propertylaw:build: ▲ Next.js 16.1.6 (Turbopack)
+sg-propertylaw:build: 
+sg-divorce:build: ▲ Next.js 16.1.6 (Turbopack)
+sg-propertylaw:build: ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+sg-divorce:build: 
+sg-divorce:build: ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+sg-fairwork:build:   Creating an optimized production build ...
+sg-propertylaw:build:   Creating an optimized production build ...
+sg-divorce:build:   Creating an optimized production build ...
+sg-fairwork:build: ✓ Compiled successfully in 1552.0ms
+sg-fairwork:build:   Running TypeScript ...
+sg-propertylaw:build: ✓ Compiled successfully in 1644.5ms
+sg-propertylaw:build:   Running TypeScript ...
+sg-divorce:build: ✓ Compiled successfully in 1786.6ms
+sg-divorce:build:   Running TypeScript ...
+sg-fairwork:build:   Collecting page data using 13 workers ...
+sg-propertylaw:build:   Collecting page data using 13 workers ...
+sg-fairwork:build:   Generating static pages using 13 workers (0/4) ...
+sg-propertylaw:build:   Generating static pages using 13 workers (0/4) ...
+sg-fairwork:build:   Generating static pages using 13 workers (1/4) 
+sg-fairwork:build:   Generating static pages using 13 workers (2/4) 
+sg-fairwork:build:   Generating static pages using 13 workers (3/4) 
+sg-fairwork:build: ✓ Generating static pages using 13 workers (4/4) in 171.7ms
+sg-fairwork:build:   Finalizing page optimization ...
+sg-fairwork:build: 
+sg-fairwork:build: Route (app)
+sg-fairwork:build: ┌ ○ /
+sg-fairwork:build: └ ○ /_not-found
+sg-fairwork:build: 
+sg-fairwork:build: 
+sg-fairwork:build: ƒ Proxy (Middleware)
+sg-fairwork:build: 
+sg-fairwork:build: ○  (Static)  prerendered as static content
+sg-fairwork:build: 
+sg-propertylaw:build:   Generating static pages using 13 workers (1/4) 
+sg-propertylaw:build:   Generating static pages using 13 workers (2/4) 
+sg-propertylaw:build:   Generating static pages using 13 workers (3/4) 
+sg-propertylaw:build: ✓ Generating static pages using 13 workers (4/4) in 181.0ms
+sg-propertylaw:build:   Finalizing page optimization ...
+sg-propertylaw:build: 
+sg-propertylaw:build: Route (app)
+sg-propertylaw:build: ┌ ○ /
+sg-propertylaw:build: ├ ○ /_not-found
+sg-propertylaw:build: └ ƒ /guides/[slug]
+sg-propertylaw:build: 
+sg-propertylaw:build: 
+sg-propertylaw:build: ƒ Proxy (Middleware)
+sg-propertylaw:build: 
+sg-propertylaw:build: ○  (Static)   prerendered as static content
+sg-propertylaw:build: ƒ  (Dynamic)  server-rendered on demand
+sg-propertylaw:build: 
+sg-divorce:build:   Collecting page data using 13 workers ...
+sg-divorce:build:   Generating static pages using 13 workers (0/7) ...
+sg-divorce:build:   Generating static pages using 13 workers (1/7) 
+sg-divorce:build:   Generating static pages using 13 workers (3/7) 
+sg-divorce:build:   Generating static pages using 13 workers (5/7) 
+sg-divorce:build: ✓ Generating static pages using 13 workers (7/7) in 288.8ms
+sg-divorce:build:   Finalizing page optimization ...
+sg-divorce:build: 
+sg-divorce:build: Route (app)
+sg-divorce:build: ┌ ○ /
+sg-divorce:build: ├ ○ /_not-found
+sg-divorce:build: ├ ƒ /api/chat
+sg-divorce:build: ├ ƒ /api/simulate
+sg-divorce:build: ├ ƒ /guides/[slug]
+sg-divorce:build: └ ○ /simulation
+sg-divorce:build: 
+sg-divorce:build: 
+sg-divorce:build: ƒ Proxy (Middleware)
+sg-divorce:build: 
+sg-divorce:build: ○  (Static)   prerendered as static content
+sg-divorce:build: ƒ  (Dynamic)  server-rendered on demand
+sg-divorce:build: 
+
+ Tasks:    4 successful, 4 total
+Cached:    1 cached, 4 total
+  Time:    5.654s 
+

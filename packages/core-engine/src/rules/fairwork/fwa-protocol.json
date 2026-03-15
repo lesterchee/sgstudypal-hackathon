@@ -1,0 +1,36 @@
+{
+    "document_title": "Tripartite Guidelines on Flexible Work Arrangement Requests",
+    "version": "2024",
+    "source_url": "https://www.tal.sg/tafep/employment-practices/flexible-work-arrangements/tripartite-guidelines-on-flexible-work-arrangement-requests",
+    "last_updated": "2024-04-15",
+    "logic_chunks": [
+        {
+            "id": "FWA_DECISION_TIMEFRAME",
+            "description": "Employers MUST provide a written decision within 2 months.",
+            "rule": "Employers must consider FWA requests properly and communicate the decision in writing to the employee within 2 months from receiving the request.",
+            "entities": [
+                "employer",
+                "employee"
+            ],
+            "conditions": [
+                "FWA request is received"
+            ]
+        },
+        {
+            "id": "FWA_REJECTION_GROUNDS",
+            "description": "Rejections must be based on reasonable business grounds (e.g., cost, productivity) and NOT personal bias.",
+            "rule": "Employers who reject FWA requests must do so based on reasonable business grounds. They should not reject requests based on personal bias or other unreasonable grounds.",
+            "reasonable_grounds_examples": [
+                "Cost to business",
+                "Detrimental impact on productivity",
+                "Detrimental impact on quality or ability to meet customer demand",
+                "Impracticality of reorganising work among existing staff or hiring new staff"
+            ],
+            "unreasonable_grounds_examples": [
+                "Management does not believe in FWAs",
+                "Supervisor prefers to see employees in the office",
+                "It's the organisation's tradition not to have FWAs"
+            ]
+        }
+    ]
+}

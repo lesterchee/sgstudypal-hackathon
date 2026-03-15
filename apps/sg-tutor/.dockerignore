@@ -1,0 +1,13 @@
+# Ignore local artifacts
+node_modules
+npm-debug.log
+.git
+
+# Ignore local build output (builder stage creates its own)
+.next
+
+# Ignore local env (production env is committed and must NOT be ignored)
+.env.local
+.env.development.local
+
+# Keep .env.production (DO NOT ADD IT HERE)

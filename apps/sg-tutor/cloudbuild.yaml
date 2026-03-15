@@ -1,0 +1,58 @@
+# Purpose: Google Cloud Build pipeline to containerize sg-tutor
+# and deploy to Cloud Run (asia-southeast1).
+#
+# Usage: gcloud builds submit --config cloudbuild.yaml .
+
+steps:
+  # ── Step 1: Build the Docker image ──────────────────────────
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'asia-southeast1-docker.pkg.dev/$PROJECT_ID/sgstudypal/sg-tutor:latest'
+      - '-t'
+      - 'asia-southeast1-docker.pkg.dev/$PROJECT_ID/sgstudypal/sg-tutor:latest'
+      - '.'
+
+  # ── Step 2: Push the image to Artifact Registry ─────────────
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'asia-southeast1-docker.pkg.dev/$PROJECT_ID/sgstudypal/sg-tutor:latest'
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'asia-southeast1-docker.pkg.dev/$PROJECT_ID/sgstudypal/sg-tutor:latest'
+
+  # ── Step 3: Deploy to Cloud Run ─────────────────────────────
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
+    args:
+      - 'run'
+      - 'deploy'
+      - 'sgstudypal'
+      - '--image'
+      - 'asia-southeast1-docker.pkg.dev/$PROJECT_ID/sgstudypal/sg-tutor:latest'
+      - '--region'
+      - 'asia-southeast1'
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated'
+      - '--port'
+      - '3000'
+      - '--memory'
+      - '512Mi'
+      - '--cpu'
+      - '1'
+      - '--min-instances'
+      - '0'
+      - '--max-instances'
+      - '3'
+
+images:
+  - 'asia-southeast1-docker.pkg.dev/$PROJECT_ID/sgstudypal/sg-tutor:latest'
+  - 'asia-southeast1-docker.pkg.dev/$PROJECT_ID/sgstudypal/sg-tutor:latest'
+
+options:
+  logging: CLOUD_LOGGING_ONLY

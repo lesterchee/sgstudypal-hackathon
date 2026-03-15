@@ -1,0 +1,103 @@
+{
+  "statute": "Intestate Succession Act 1967",
+  "section": 7,
+  "title": "Rules for distribution",
+  "rules": [
+    {
+      "condition": "Surviving spouse, no issue, no parents",
+      "distribution": [
+        {
+          "beneficiary": "Spouse",
+          "share": "100%"
+        }
+      ]
+    },
+    {
+      "condition": "Surviving spouse and issue",
+      "distribution": [
+        {
+          "beneficiary": "Spouse",
+          "share": "50%"
+        },
+        {
+          "beneficiary": "Issue",
+          "share": "50% (in equal portions)"
+        }
+      ],
+      "notes": "When an issue dies before the intestate, the deceased issue's share is divided evenly among their own children."
+    },
+    {
+      "condition": "Surviving issue, no spouse",
+      "distribution": [
+        {
+          "beneficiary": "Issue",
+          "share": "100% (in equal portions)"
+        }
+      ]
+    },
+    {
+      "condition": "Surviving spouse and parents, no issue",
+      "distribution": [
+        {
+          "beneficiary": "Spouse",
+          "share": "50%"
+        },
+        {
+          "beneficiary": "Parents",
+          "share": "50% (in equal portions)"
+        }
+      ]
+    },
+    {
+      "condition": "Surviving parents, no spouse, no issue",
+      "distribution": [
+        {
+          "beneficiary": "Parents",
+          "share": "100% (in equal portions)"
+        }
+      ]
+    },
+    {
+      "condition": "Surviving brothers and sisters, no spouse, no issue, no parents",
+      "distribution": [
+        {
+          "beneficiary": "Brothers and Sisters",
+          "share": "100% (in equal portions)"
+        }
+      ],
+      "notes": "Children of a deceased sibling represent their parent to claim their share."
+    },
+    {
+      "condition": "Surviving grandparents, no spouse, no issue, no parents, no siblings or children of siblings",
+      "distribution": [
+        {
+          "beneficiary": "Grandparents",
+          "share": "100% (in equal portions)"
+        }
+      ]
+    },
+    {
+      "condition": "Surviving uncles and aunts, no spouse, no issue, no parents, no siblings or children of siblings, no grandparents",
+      "distribution": [
+        {
+          "beneficiary": "Uncles and Aunts",
+          "share": "100% (in equal portions)"
+        }
+      ]
+    },
+    {
+      "condition": "No surviving relatives as defined in the rules",
+      "distribution": [
+        {
+          "beneficiary": "Government",
+          "share": "100%"
+        }
+      ]
+    }
+  ],
+  "general_notes": [
+    "Does not apply to Muslims, whose intestate estates are governed by Muslim law.",
+    "'Children' refers to legitimate children and legally adopted children. Illegitimate children and stepchildren have no legal standing under this Act.",
+    "Jointly held properties (Joint Tenancy), nominated life insurance policies, and CPF funds are generally not distributable under this Act."
+  ]
+}

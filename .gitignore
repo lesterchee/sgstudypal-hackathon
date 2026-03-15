@@ -1,0 +1,13 @@
+node_modules/
+.turbo/
+.next/
+dist/
+temp/
+.env
+.env.local
+.DS_Store
+apps/sg-tutor/_data/
+apps/sg-tutor/public/v1/
+sa-key.json
+*.pem
+*serviceAccountKey*.json

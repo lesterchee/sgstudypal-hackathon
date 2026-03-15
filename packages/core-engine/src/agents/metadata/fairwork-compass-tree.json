@@ -1,0 +1,69 @@
+{
+    "agentId": "fairwork-compass-001",
+    "version": "2024.1",
+    "root": "START_TRIAGE",
+    "nodes": {
+        "START_TRIAGE": {
+            "question": "Are you facing a dismissal issue, or are you looking to request a Flexible Work Arrangement (FWA)?",
+            "options": [
+                {
+                    "label": "Dismissal Issue",
+                    "next": "DISMISSAL_TIMELINE_CHECK"
+                },
+                {
+                    "label": "FWA Request",
+                    "next": "FWA_PROBATION_CHECK"
+                }
+            ]
+        },
+        "DISMISSAL_TIMELINE_CHECK": {
+            "question": "For a Wrongful Dismissal claim at TADM, you must file within 1 month from your last day of employment. Has it been more than 1 month since your dismissal?",
+            "options": [
+                {
+                    "label": "Yes (>1 month)",
+                    "next": "TADM_TIME_BARRED_WARNING"
+                },
+                {
+                    "label": "No (<=1 month)",
+                    "next": "READY_FOR_EMPLOYMENT_QUANT"
+                }
+            ]
+        },
+        "TADM_TIME_BARRED_WARNING": {
+            "type": "LEGAL_NOTE",
+            "content": "Time Bar Rule: Wrongful dismissal claims generally must be filed at TADM within 1 month of the last day of employment. Your claim may be time-barred.",
+            "links": [
+                "https://www.tal.sg/tadm/dispute-resolution/wrongful-dismissal"
+            ],
+            "next": "READY_FOR_EMPLOYMENT_QUANT"
+        },
+        "FWA_PROBATION_CHECK": {
+            "question": "Have you completed your probation period with your current employer?",
+            "options": [
+                {
+                    "label": "Yes",
+                    "next": "READY_FOR_FWA_SUBMISSION"
+                },
+                {
+                    "label": "No",
+                    "next": "PROBATION_LIMIT_WARNING"
+                }
+            ]
+        },
+        "PROBATION_LIMIT_WARNING": {
+            "type": "LEGAL_NOTE",
+            "content": "Probation Limit: Under the Tripartite Guidelines, formal FWA request rights only begin after you have completed your probation. You may still make an informal request.",
+            "next": "READY_FOR_FWA_SUBMISSION"
+        },
+        "READY_FOR_FWA_SUBMISSION": {
+            "type": "HANDOFF",
+            "content": "Procedural triage complete. Passing you to the FairWork Quant Agent.",
+            "handoffTo": "agent-b-quant"
+        },
+        "READY_FOR_EMPLOYMENT_QUANT": {
+            "type": "HANDOFF",
+            "content": "Procedural triage complete. Passing you to the Employment Quant Agent.",
+            "handoffTo": "agent-b-quant"
+        }
+    }
+}

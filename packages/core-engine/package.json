@@ -1,0 +1,27 @@
+{
+    "name": "@repo/core-engine",
+    "version": "1.0.0",
+    "type": "module",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "tsc",
+        "dev": "tsc -w",
+        "lint": "eslint src/",
+        "test:shadow": "npx tsx src/tests/shadow-simulations.ts",
+        "test:benchmarks": "npx tsx src/scripts/simulate-shadow-users.ts"
+    },
+    "dependencies": {
+        "zod": "^3.22.4"
+    },
+    "devDependencies": {
+        "typescript": "^5.4.0"
+    },
+    "exports": {
+        ".": "./dist/index.js",
+        "./rules/*": "./src/rules/*",
+        "./math": "./dist/math/index.js",
+        "./schemas": "./dist/schemas/index.js",
+        "./utils/logger": "./src/utils/logger.ts"
+    }
+}

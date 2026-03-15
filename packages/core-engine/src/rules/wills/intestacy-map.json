@@ -1,0 +1,118 @@
+{
+    "source_url": "https://sso.agc.gov.sg/Act/ISA1967",
+    "last_updated": "2026-02-27T20:23:05+08:00",
+    "act": "Intestate Succession Act 1967",
+    "section": 7,
+    "title": "Rules of Distribution",
+    "logic_type": "Fixed Table",
+    "rules": [
+        {
+            "description": "Rule 1: Spouse only (no children, no parents)",
+            "conditions": {
+                "has_spouse": true,
+                "has_children": false,
+                "has_parents": false
+            },
+            "distribution": {
+                "spouse": "100%"
+            }
+        },
+        {
+            "description": "Rule 2: Spouse and children",
+            "conditions": {
+                "has_spouse": true,
+                "has_children": true
+            },
+            "distribution": {
+                "spouse": "50%",
+                "children": "50%"
+            }
+        },
+        {
+            "description": "Rule 3: Children only (no spouse)",
+            "conditions": {
+                "has_spouse": false,
+                "has_children": true
+            },
+            "distribution": {
+                "children": "100%"
+            }
+        },
+        {
+            "description": "Rule 4: Spouse and parents (no children)",
+            "conditions": {
+                "has_spouse": true,
+                "has_children": false,
+                "has_parents": true
+            },
+            "distribution": {
+                "spouse": "50%",
+                "parents": "50%"
+            }
+        },
+        {
+            "description": "Rule 5: Parents only (no spouse, no children)",
+            "conditions": {
+                "has_spouse": false,
+                "has_children": false,
+                "has_parents": true
+            },
+            "distribution": {
+                "parents": "100%"
+            }
+        },
+        {
+            "description": "Rule 6: Siblings only (no spouse, no children, no parents)",
+            "conditions": {
+                "has_spouse": false,
+                "has_children": false,
+                "has_parents": false,
+                "has_siblings": true
+            },
+            "distribution": {
+                "siblings": "100%"
+            }
+        },
+        {
+            "description": "Rule 7: Grandparents only (no spouse, no children, no parents, no siblings)",
+            "conditions": {
+                "has_spouse": false,
+                "has_children": false,
+                "has_parents": false,
+                "has_siblings": false,
+                "has_grandparents": true
+            },
+            "distribution": {
+                "grandparents": "100%"
+            }
+        },
+        {
+            "description": "Rule 8: Uncles and aunts only (no spouse, no children, no parents, no siblings, no grandparents)",
+            "conditions": {
+                "has_spouse": false,
+                "has_children": false,
+                "has_parents": false,
+                "has_siblings": false,
+                "has_grandparents": false,
+                "has_uncles_aunts": true
+            },
+            "distribution": {
+                "uncles_aunts": "100%"
+            }
+        },
+        {
+            "description": "Rule 9: No surviving relatives",
+            "conditions": {
+                "has_spouse": false,
+                "has_children": false,
+                "has_parents": false,
+                "has_siblings": false,
+                "has_grandparents": false,
+                "has_uncles_aunts": false
+            },
+            "distribution": {
+                "government": "100%"
+            }
+        }
+    ]
+}
