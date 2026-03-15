@@ -45,10 +45,13 @@ Type out the question you see, then end your response with exactly this phrase: 
 
 
 
-// Purpose: Sprint 221 — Text-only Homework Help persona. Image upload is
-// disabled (Phase 180 WIP lockdown). This prompt waits for the student to
-// type their question and guides them with Socratic methodology.
-const HOMEWORK_IMAGE_PROMPT = `You are Auntie, a supportive and sharp Singaporean AI tutor for SgStudyPal. The user will type their homework questions to you. Guide them step-by-step using the Socratic method. Do NOT pretend to see an uploaded image. Do NOT make up questions. Wait for the user to provide the problem, and then help them solve it. Use a warm, encouraging Singaporean tone.`;
+// Purpose: Sprint 221 / Phase 184 — Image-aware Homework Help persona.
+// When the student uploads an image, Auntie analyzes and solves it.
+const HOMEWORK_IMAGE_PROMPT = `You are Auntie, a supportive and sharp Singaporean AI tutor for SgStudyPal. The user has uploaded an image of a homework question. You MUST:
+1. Look at the image carefully and restate the question you see.
+2. Immediately guide the student through the solution step-by-step using the Model Method or unit/ratio logic.
+3. End with a "⚠️ Common PSLE Trap" section.
+Do NOT ask for confirmation. Do NOT use LaTeX. Use a warm, encouraging Singaporean tone.`;
 
 // Purpose: Sprint 102/111/124 — Build a dynamic system prompt. Quizmaster route gets
 // conditional branching (Path A/B) + hyper-personalization + persona; Homework Help gets base + follow-up rule.
@@ -165,28 +168,48 @@ export async function POST(req: Request) {
         // that Gemini expects, preventing Zod invalid_union validation crashes.
         const coreMessages = await convertToModelMessages(messages);
 
-        // Purpose: [DISABLED Phase 180] Multimodal image injection reverted to
-        // stabilize demo. Re-enable once Buffer/mimeType serialization is validated
-        // against the @ai-sdk/google provider's internal schema.
-        // if (imageData) {
-        //     const lastCoreMessage = coreMessages[coreMessages.length - 1];
-        //     if (lastCoreMessage && lastCoreMessage.role === "user") {
-        //         if (typeof lastCoreMessage.content === 'string') {
-        //             (lastCoreMessage as any).content = [
-        //                 { type: 'text', text: lastCoreMessage.content }
-        //             ];
-        //         }
-        //         const base64Data = imageData.includes(',') ? imageData.split(',')[1] : imageData;
-        //         const mimeTypeMatch = imageData.match(/data:(.*?);/);
-        //         const mimeType = mimeTypeMatch ? mimeTypeMatch[1] : 'image/jpeg';
-        //         (lastCoreMessage.content as any[]).push({
-        //             type: "image",
-        //             image: Buffer.from(base64Data, 'base64'),
-        //             mimeType: mimeType,
-        //         });
-        //         console.log("[IMAGE INJECT] Buffer injected");
-        //     }
-        // }
+        // Purpose: Phase 184 — Static Image Buffer Resolution.
+        // Handles both base64 data URIs and static asset paths (e.g. "/images/q1.png").
+        // Fetches static images from our own server and converts to Buffer.
+        let finalMessages: any = coreMessages;
+        if (imageData) {
+            const lastMessage = messages[messages.length - 1];
+            const multimodalContent: any[] = [
+                { type: "text", text: lastMessage.content || "Please solve this." }
+            ];
+
+            let imageBuffer: Buffer;
+
+            if (imageData.startsWith('data:image')) {
+                // Standard base64 upload
+                const base64String = imageData.split(',')[1];
+                imageBuffer = Buffer.from(base64String, 'base64');
+                console.log("[IMAGE INJECT] Base64 data URI detected, bytes:", imageBuffer.length);
+            } else {
+                // Static asset path (e.g. "/images/q1.png")
+                const host = req.headers.get('host') || 'localhost:3000';
+                const protocol = host.includes('localhost') ? 'http' : 'https';
+                const absoluteUrl = imageData.startsWith('http') ? imageData : `${protocol}://${host}${imageData}`;
+
+                console.log("[IMAGE INJECT] Fetching static asset:", absoluteUrl);
+                const fetchRes = await fetch(absoluteUrl);
+                const arrayBuffer = await fetchRes.arrayBuffer();
+                imageBuffer = Buffer.from(arrayBuffer);
+                console.log("[IMAGE INJECT] Static asset fetched, bytes:", imageBuffer.length);
+            }
+
+            multimodalContent.push({
+                type: "image",
+                image: imageBuffer,
+            });
+
+            // Build a replacement messages array with the multimodal last message
+            const priorMessages = await convertToModelMessages(messages.slice(0, -1));
+            finalMessages = [
+                ...priorMessages,
+                { role: lastMessage.role, content: multimodalContent }
+            ];
+        }
 
         // Purpose: Sprint 115 — Intercept hidden UI directives from the side-channel.
         // The frontend passes natural user text for the chat bubble, while strict
@@ -219,7 +242,7 @@ export async function POST(req: Request) {
         const result = streamText({
             model: google("gemini-2.5-flash"),
             system: systemPrompt,
-            messages: coreMessages,
+            messages: finalMessages,
             // Purpose: Allow up to 5 steps so the LLM can call log_student_mastery
             // and still produce a text response to the student.
             stopWhen: stepCountIs(5),
