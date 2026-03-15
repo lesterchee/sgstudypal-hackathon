@@ -412,44 +412,9 @@ export default function HomeworkHelpPage() {
                                         <span className="whitespace-pre-wrap">{mainContent}</span>
                                     </div>
 
-                                    {/* Purpose: Sprint 130 — Guided CUI. Conditionally render Action Rows based on the AI's current state in the tutoring loop. */}
-                                    {!isUser && idx === messages.length - 1 && !isStreaming && (
-                                        <div className="mt-4 flex flex-wrap gap-2">
-                                            {mainContent.includes("Is my understanding of the question correct?") ? (
-                                                <>
-                                                    {/* OCR Verification Flow */}
-                                                    <button
-                                                        onClick={() => sendMessage({ text: "Yes, help me solve it." })}
-                                                        className="text-xs font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-3 py-1.5 rounded-md transition-colors shadow-sm cursor-pointer"
-                                                    >
-                                                        ✅ Yes, help me solve it
-                                                    </button>
-                                                    <button
-                                                        onClick={() => sendMessage({ text: "No, let me clarify. The correct question is: " })}
-                                                        className="text-xs font-semibold text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-3 py-1.5 rounded-md transition-colors shadow-sm cursor-pointer"
-                                                    >
-                                                        ❌ No, let me clarify
-                                                    </button>
-                                                </>
-                                            ) : (
-                                                <>
-                                                    {/* Post-Solution Learning Flow */}
-                                                    <button
-                                                        onClick={() => sendMessage({ text: "I'm good. Give me a new, similar question to test my understanding." })}
-                                                        className="text-xs font-semibold text-blue-700 bg-blue-50 hover:bg-blue-100 border border-blue-200 px-3 py-1.5 rounded-md transition-colors shadow-sm cursor-pointer"
-                                                    >
-                                                        🔄 I&apos;m good. Give me a similar question
-                                                    </button>
-                                                    <button
-                                                        onClick={() => sendMessage({ text: "I'm still a bit stuck. This concept isn't quite clicking for me yet. Could you explain the hardest part one more time using a different approach? Break it down into bite-sized pieces for a 12-year-old. Using a clear analogy from everyday life in Singapore—like taking the MRT, buying food at the hawker centre, or managing pocket money—would really help me visualize it." })}
-                                                        className="text-xs font-semibold text-violet-700 bg-violet-50 hover:bg-violet-100 border border-violet-200 px-3 py-1.5 rounded-md transition-colors shadow-sm cursor-pointer"
-                                                    >
-                                                        💡 I need more help. Explain this further
-                                                    </button>
-                                                </>
-                                            )}
-                                        </div>
-                                    )}
+                                    {/* Purpose: Sprint 130 — Quick-reply buttons removed (Phase 188).
+                                       Gwen now handles follow-ups and question generation via
+                                       her conversational protocols (directives 6-9). */}
                                 </div>
                             </div>
                         );
